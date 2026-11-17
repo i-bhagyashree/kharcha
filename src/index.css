@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-brand-50: #f3f1ff;
+  --color-brand-100: #e9e5ff;
+  --color-brand-200: #d4ccff;
+  --color-brand-300: #b4a3ff;
+  --color-brand-400: #9171ff;
+  --color-brand-500: #7444fb;
+  --color-brand-600: #6526ef;
+  --color-brand-700: #5519d4;
+  --color-brand-800: #4616ab;
+  --color-brand-900: #3b158b;
+  --color-brand-950: #22095a;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Noto Sans Devanagari", sans-serif;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Black theme: the dark theme, but on pure black (AMOLED). Every dark: class
+   uses these slate shades, so swapping them here re-colours the whole app. */
+html.black {
+  --color-slate-950: #000000;
+  --color-slate-900: #0c0c0d;
+  --color-slate-800: #1c1c1f;
+  --color-slate-700: #2e2e33;
+}
+/* Translucent shades are compiled to fixed colours, so set them here too. */
+html.black [class*="dark:bg-slate-950/"] {
+  background-color: rgb(0 0 0 / 0.85);
+}
+html.black [class*="dark:bg-slate-900/"] {
+  background-color: rgb(12 12 13 / 0.95);
+}
+html.black [class*="dark:bg-slate-800/"],
+html.black [class*="dark:hover:bg-slate-800/"]:hover {
+  background-color: rgb(28 28 31 / 0.6);
+}
+html.black [class*="dark:border-slate-800/"] {
+  border-color: rgb(28 28 31 / 0.7);
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100;
+}
+
+/* Numbers line up in lists and tables */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+@keyframes sheet-up {
+  from {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.animate-sheet {
+  animation: sheet-up 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.animate-fade {
+  animation: fade-in 0.18s ease-out;
+}
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgb(244 63 94 / 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 14px rgb(244 63 94 / 0);
+  }
+}
+.animate-listening {
+  animation: pulse-ring 1.2s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-sheet,
+  .animate-fade,
+  .animate-listening {
+    animation: none;
+  }
+}

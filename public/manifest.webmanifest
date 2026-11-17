@@ -1,0 +1,11 @@
+{
+  "name": "Kharcha — apna hisaab",
+  "short_name": "Kharcha",
+  "description": "Kharcha, udhaar, bill split aur rozana khaata — offline aur private.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#6526ef",
+  "icons": [{ "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}
