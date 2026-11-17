@@ -1,5 +1,7 @@
 # Kharcha — apna hisaab, apne paas
 
+**Live demo:** https://i-bhagyashree.github.io/kharcha/ (open it and tap "demo data ke saath dekho")
+
 Kharcha is a personal expense and *lena-dena* (who owes whom) app for India. Write down what you spent, keep track of udhaar, split bills with friends, keep the daily milk/maid khaata, and use 14 everyday calculators. It runs fully in the browser: no login, no server, and the data stays on the device.
 
 ## Features
